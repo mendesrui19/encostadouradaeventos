@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Encosta Dourada — Restaurante & Eventos | Famalicão</title>
+  <meta name="description" content="Restaurante, eventos, casamentos, batizados e jantares dançantes em Vila Nova de Famalicão. Espaço para mais de 200 pessoas, jardim, esplanada e estacionamento privado." />
+  <meta property="og:title" content="Encosta Dourada — Restaurante & Eventos" />
+  <meta property="og:description" content="O melhor espaço para a melhor festa. Restaurante, catering e eventos em Outiz, Famalicão." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#f8f3ea" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/images/brand/logo.png" as="image" />
+  <link rel="preload" href="assets/video/hero.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/video/hero-poster.jpg" as="image" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    document.documentElement.classList.add("is-loading");
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+  <script defer src="js/menu-data.js"></script>
+  <script defer src="js/preload.js"></script>
+  <script defer src="js/menu-book.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <div id="siteLoader" class="site-loader" aria-live="polite" aria-busy="true" role="status">
+    <div class="site-loader__bg" aria-hidden="true"></div>
+    <div class="site-loader__inner">
+      <div class="site-loader__ring-wrap" aria-hidden="true">
+        <svg class="site-loader__ring" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" stroke="rgba(46, 36, 24, 0.1)" stroke-width="2.25" />
+          <circle
+            id="siteLoaderRing"
+            cx="50"
+            cy="50"
+            r="46"
+            stroke="url(#siteLoaderGradient)"
+            stroke-width="2.75"
+            stroke-linecap="round"
+            stroke-dasharray="289.027"
+            stroke-dashoffset="289.027"
+            transform="rotate(-90 50 50)"
+          />
+          <defs>
+            <linearGradient id="siteLoaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#dfc56a" />
+              <stop offset="100%" stop-color="#9a7b28" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="site-loader__logo">
+          <img
+            src="assets/images/brand/logo.png"
+            alt="Encosta Dourada"
+            width="160"
+            height="160"
+            decoding="sync"
+          />
+        </div>
+      </div>
+      <p class="site-loader__label" id="siteLoaderLabel">A preparar tipografia…</p>
+      <div class="site-loader__track">
+        <div class="site-loader__meta">
+          <span>A carregar</span>
+          <span id="siteLoaderPct">0%</span>
+        </div>
+        <div class="site-loader__bar">
+          <span id="siteLoaderBar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="atmos" id="atmos"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+
+  <header class="masthead masthead--video" id="masthead">
+    <a class="mark" href="#inicio">
+      <b>Encosta Dourada</b>
+      <span>Restaurante & Eventos · Famalicão</span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="#espaco">Espaço</a>
+      <a href="#sabores">Sabores</a>
+      <a href="#galeria">Eventos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <aside class="rail" id="rail" aria-label="Capítulos"></aside>
+
+  <main>
+    <section class="video-story" id="inicio" aria-label="Apresentação em vídeo">
+      <div class="video-story__pin">
+        <video
+          class="video-story__bg"
+          id="heroVideo"
+          muted
+          playsinline
+          preload="auto"
+          poster="assets/video/hero-poster.jpg"
+          aria-hidden="true"
+          disablepictureinpicture
+        >
+          <source src="assets/video/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="video-story__shade" aria-hidden="true"></div>
+
+        <div class="video-story__scenes" id="videoScenes">
+          <article class="video-scene is-active" data-scene="0">
+            <p class="video-scene__eyebrow">Outiz · Vila Nova de Famalicão</p>
+            <h1 class="video-scene__title">Encosta <em>Dourada</em></h1>
+            <p class="video-scene__lede">Onde cada refeição e cada festa ficam para sempre na memória.</p>
+          </article>
+          <article class="video-scene" data-scene="1">
+            <p class="video-scene__eyebrow">Reserve connosco</p>
+            <h2 class="video-scene__title">O seu momento <em>começa aqui</em></h2>
+            <p class="video-scene__lede">Gastronomia de excelência, eventos únicos e uma vista que inspira.</p>
+            <a class="video-scene__cta reserve-cta" href="#">Fazer reserva</a>
+          </article>
+        </div>
+
+        <div class="video-story__ui" aria-hidden="true">
+          <div class="video-story__progress">
+            <span class="video-story__progress-bar" id="videoProgress"></span>
+          </div>
+          <div class="video-story__dots" id="videoDots"></div>
+        </div>
+
+        <div class="scroll-cue scroll-cue--video" aria-hidden="true">
+          <span>Scroll para avançar o vídeo</span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </section>
+
+    <div id="book"></div>
+
+    <section class="moments" id="galeria" aria-label="Galeria de momentos"></section>
+
+    <section class="reviews" id="criticas" aria-label="Críticas e opiniões"></section>
+
+    <section class="contact" id="contacto" aria-label="Contacto e localização"></section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Encosta Dourada</span>
+    <span>Restaurante · Eventos · Catering · Take Away</span>
+  </footer>
+</body>
+</html>
