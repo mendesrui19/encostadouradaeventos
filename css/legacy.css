@@ -1,0 +1,440 @@
+/**
+ * Modo legado — iPad 2, iOS 9–10, browsers sem Grid / CSS variables / clamp.
+ * Cores e layout fixos; experiência simplificada mas coerente.
+ */
+
+html.is-legacy {
+  font-size: 16px;
+}
+
+html.is-legacy,
+html.is-legacy body {
+  background: #f8f3ea;
+  color: #4a4034;
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.is-legacy .atmos,
+html.is-legacy .grain,
+html.is-legacy .scrollbar,
+html.is-legacy .rail,
+html.is-legacy .scroll-cue,
+html.is-legacy .video-story__ui {
+  display: none !important;
+}
+
+html.is-legacy.is-loading .masthead,
+html.is-legacy.is-loading main,
+html.is-legacy.is-loading .footer {
+  visibility: visible;
+}
+
+html.is-legacy .site-loader {
+  background: #f8f3ea;
+}
+
+html.is-legacy .site-loader__label,
+html.is-legacy .site-loader__meta {
+  color: #8a7d6c;
+}
+
+html.is-legacy .site-loader__bar span {
+  background: linear-gradient(90deg, #9a7b28, #dfc56a);
+}
+
+html.is-legacy .masthead {
+  position: relative;
+  padding: 16px 20px;
+  background: rgba(248, 243, 234, 0.96);
+  border-bottom: 1px solid rgba(46, 36, 24, 0.12);
+}
+
+html.is-legacy .masthead .mark b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #9a7b28;
+}
+
+html.is-legacy .masthead .mark span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a7d6c;
+}
+
+html.is-legacy .masthead nav {
+  display: block;
+  margin-top: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+html.is-legacy .masthead nav a {
+  display: inline-block;
+  margin-right: 14px;
+  padding: 8px 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #8a7d6c;
+}
+
+html.is-legacy .masthead nav a:hover,
+html.is-legacy .masthead nav a:focus {
+  color: #2e2418;
+}
+
+html.is-legacy .video-story {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+html.is-legacy .video-story__pin {
+  position: relative !important;
+  top: auto !important;
+  height: auto !important;
+  min-height: 420px !important;
+  background: #0f0c08 url("../assets/video/hero-poster.jpg") center center / cover no-repeat;
+}
+
+html.is-legacy .video-story__bg {
+  display: none !important;
+}
+
+html.is-legacy .video-story__shade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.55;
+  background: linear-gradient(to top, rgba(6, 5, 3, 0.88), rgba(6, 5, 3, 0.35));
+}
+
+html.is-legacy .video-story__scenes {
+  display: block !important;
+  position: relative;
+  z-index: 2;
+  min-height: 420px;
+  padding: 80px 24px 48px;
+  text-align: center;
+}
+
+html.is-legacy .video-scene {
+  display: block !important;
+  position: relative !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  color: #fff;
+}
+
+html.is-legacy .video-scene__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #dfc56a;
+}
+
+html.is-legacy .video-scene__title {
+  margin: 12px 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+html.is-legacy .video-scene__title em {
+  font-style: italic;
+  color: #dfc56a;
+}
+
+html.is-legacy .video-scene__lede {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html.is-legacy .video-scene__cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #c4a035;
+  border: 1px solid #c4a035;
+  color: #2e2418;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+html.is-legacy .chapter {
+  padding: 56px 20px;
+  background: #f8f3ea;
+}
+
+html.is-legacy .chapter:nth-child(even) {
+  background: #efe6d6;
+}
+
+html.is-legacy .chapter .inner {
+  display: block !important;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+html.is-legacy .chapter .eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9a7b28;
+}
+
+html.is-legacy .chapter h2 {
+  margin: 10px 0 16px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.15;
+  color: #2e2418;
+}
+
+html.is-legacy .chapter h2 em {
+  font-style: italic;
+  color: #9a7b28;
+}
+
+html.is-legacy .chapter .lede,
+html.is-legacy .chapter p {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #4a4034;
+}
+
+html.is-legacy .features {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.is-legacy .features li {
+  position: relative;
+  padding: 8px 0 8px 18px;
+  font-size: 0.95rem;
+  color: #4a4034;
+}
+
+html.is-legacy .features li:before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: #c4a035;
+  font-weight: bold;
+}
+
+html.is-legacy .legacy-figure {
+  margin: 24px 0 0;
+}
+
+html.is-legacy .legacy-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+}
+
+html.is-legacy .legacy-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #8a7d6c;
+  text-align: center;
+}
+
+html.is-legacy .moments,
+html.is-legacy .reviews,
+html.is-legacy .contact {
+  padding: 56px 20px;
+  background: #f8f3ea;
+}
+
+html.is-legacy .moments h2,
+html.is-legacy .reviews h2,
+html.is-legacy .contact h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  color: #2e2418;
+  margin: 0 0 12px;
+}
+
+html.is-legacy .legacy-promo {
+  margin: 20px 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+  border-radius: 8px;
+}
+
+html.is-legacy .legacy-promo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+html.is-legacy .legacy-promo h3 {
+  margin: 0 0 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  color: #2e2418;
+}
+
+html.is-legacy .legacy-promo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4a4034;
+}
+
+html.is-legacy .legacy-review {
+  margin: 16px 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+  border-radius: 8px;
+}
+
+html.is-legacy .legacy-review strong {
+  color: #9a7b28;
+}
+
+html.is-legacy .contact-layout {
+  display: block !important;
+}
+
+html.is-legacy .contact-actions {
+  display: block !important;
+  margin-bottom: 20px;
+}
+
+html.is-legacy .contact-action {
+  display: block;
+  margin-bottom: 10px;
+  padding: 14px 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+  background: #fff;
+  color: #2e2418;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html.is-legacy .contact-action--primary,
+html.is-legacy .contact-action--reserve {
+  background: #2e2418;
+  border-color: #2e2418;
+  color: #f8f3ea;
+}
+
+html.is-legacy .contact-map {
+  margin: 20px 0;
+  min-height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+}
+
+html.is-legacy .contact-map__frame {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border: 0;
+}
+
+html.is-legacy .contact-card {
+  margin: 16px 0;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid rgba(46, 36, 24, 0.12);
+  border-radius: 8px;
+}
+
+html.is-legacy .contact-card h4 {
+  margin: 0 0 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a7b28;
+}
+
+html.is-legacy .contact-card a {
+  color: #9a7b28;
+}
+
+html.is-legacy .hours-list,
+html.is-legacy .contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.is-legacy .hours-list li,
+html.is-legacy .contact-list li {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(46, 36, 24, 0.08);
+  font-size: 0.9rem;
+}
+
+html.is-legacy .footer {
+  padding: 24px 20px;
+  border-top: 1px solid rgba(46, 36, 24, 0.12);
+  font-size: 0.75rem;
+  color: #8a7d6c;
+  text-align: center;
+}
+
+html.is-legacy .footer span {
+  display: block;
+  margin: 4px 0;
+}
+
+html.is-legacy .reserve-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: #c4a035;
+  color: #2e2418;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+html.is-legacy .reveal-io,
+html.is-legacy .chapter-animate {
+  opacity: 1 !important;
+  transform: none !important;
+}
