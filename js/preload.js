@@ -63,6 +63,22 @@
     return heroVideoReady;
   }
 
+  function prefersReducedMotion() {
+    if (!window.matchMedia) return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  async function waitForFontsReady() {
+    if (!document.fonts || !document.fonts.ready) return;
+    await document.fonts.ready;
+    if (document.fonts.load) {
+      await Promise.all([
+        document.fonts.load('400 16px "Jost"'),
+        document.fonts.load('400 16px "Cormorant Garamond"'),
+      ]);
+    }
+  }
+
   function sleep(ms) {
     return new Promise((resolve) => {
       window.setTimeout(resolve, ms);
@@ -299,13 +315,7 @@
 
     onProgress?.({ ratio: 0, phase: "fonts", label: PHASE_LABELS.fonts });
 
-    await retryUntil(async () => {
-      await document.fonts.ready;
-      await Promise.all([
-        document.fonts.load('400 16px "Jost"'),
-        document.fonts.load('400 16px "Cormorant Garamond"'),
-      ]);
-    }, setRetry);
+    await retryUntil(() => waitForFontsReady(), setRetry);
     report("fonts", 1);
 
     onProgress?.({ ratio: WEIGHTS.fonts, phase: "scripts", label: PHASE_LABELS.scripts });
@@ -423,9 +433,13 @@
     document.documentElement.classList.add("is-loading");
     document.body.style.overflow = "hidden";
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = prefersReducedMotion();
 
-    await preloadSite(updateLoader);
+    try {
+      await preloadSite(updateLoader);
+    } catch (err) {
+      console.error("[Encosta Dourada] preload", err);
+    }
 
     updateLoader({ ratio: 1, phase: "final", label: "Pronto." });
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mendesrui19.github.io/encostadouradaeventos/sitemap.xml
