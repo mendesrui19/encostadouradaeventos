@@ -389,10 +389,47 @@ body.past-video .masthead--video nav a:hover {
   opacity: 0;
 }
 
+.video-story.is-fallback {
+  height: auto;
+}
+
 .video-story.is-fallback .video-story__pin {
+  position: relative;
+  top: auto;
+  height: auto;
+  min-height: 480px;
   background-image: url("../assets/video/hero-poster.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.video-story.is-fallback .video-story__scenes {
+  display: block;
+  height: auto;
+  min-height: 480px;
+  padding-bottom: 48px;
+}
+
+.video-story.is-fallback .video-scene {
+  display: block;
+  position: relative;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  margin: 0 auto 36px;
+}
+
+.video-story.is-fallback .video-scene .video-scene__eyebrow,
+.video-story.is-fallback .video-scene .video-scene__title,
+.video-story.is-fallback .video-scene .video-scene__lede,
+.video-story.is-fallback .video-scene .video-scene__cta {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.video-story.is-fallback .scroll-cue--video,
+.video-story.is-fallback .video-story__ui {
+  display: none;
 }
 
 .video-story__bg {

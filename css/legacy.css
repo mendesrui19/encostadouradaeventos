@@ -265,6 +265,88 @@ html.is-legacy .legacy-figure figcaption {
   text-align: center;
 }
 
+html.is-legacy .legacy-menu {
+  margin-top: 28px;
+}
+
+html.is-legacy .legacy-menu-category {
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(46, 36, 24, 0.1);
+}
+
+html.is-legacy .legacy-menu-category:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+html.is-legacy .legacy-figure--menu {
+  margin-bottom: 16px;
+}
+
+html.is-legacy .legacy-menu-category h3 {
+  margin: 0 0 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  color: #2e2418;
+}
+
+html.is-legacy .legacy-menu-desc {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  color: #8a7d6c;
+}
+
+html.is-legacy .legacy-menu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.is-legacy .legacy-menu-dish {
+  display: block;
+  margin-bottom: 14px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid rgba(46, 36, 24, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+html.is-legacy .legacy-menu-dish__img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto 10px;
+  border-radius: 6px;
+}
+
+html.is-legacy .legacy-menu-dish__body strong {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  color: #2e2418;
+}
+
+html.is-legacy .legacy-menu-dish__body span {
+  display: block;
+  margin: 4px 0 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #9a7b28;
+}
+
+html.is-legacy .legacy-menu-dish__body p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #8a7d6c;
+}
+
+html.is-legacy .chapter--menu {
+  background: #efe6d6;
+}
+
 html.is-legacy .moments,
 html.is-legacy .reviews,
 html.is-legacy .contact {

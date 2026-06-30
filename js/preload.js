@@ -102,6 +102,20 @@
     }
   }
 
+  async function retryUntilMax(task, onRetry, maxAttempts) {
+    let attempt = 0;
+    while (attempt < maxAttempts) {
+      try {
+        return await task();
+      } catch (err) {
+        attempt += 1;
+        onRetry?.(attempt, err);
+        if (attempt >= maxAttempts) throw err;
+        await sleep(retryDelay(attempt));
+      }
+    }
+  }
+
   function preloadImage(src) {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -328,18 +342,27 @@
       label: PHASE_LABELS.video,
     });
 
-    await retryUntil(
-      () =>
-        preloadHeroVideo(HERO_VIDEO_SRC, (local) => {
-          report("video", typeof local === "number" ? local : local?.partial ?? 0);
-        }),
-      (attempt) => {
-        heroVideoBlobUrl = null;
-        heroVideoReady = false;
-        heroVideoElement = null;
-        setRetry(attempt);
-      }
-    );
+    try {
+      await retryUntilMax(
+        () =>
+          preloadHeroVideo(HERO_VIDEO_SRC, (local) => {
+            report("video", typeof local === "number" ? local : local?.partial ?? 0);
+          }),
+        (attempt) => {
+          heroVideoBlobUrl = null;
+          heroVideoReady = false;
+          heroVideoElement = null;
+          setRetry(attempt);
+        },
+        4
+      );
+    } catch (err) {
+      console.warn("[Encosta Dourada] vídeo indisponível — site completo com imagem de capa.", err);
+      window.__videoFallback = true;
+      heroVideoBlobUrl = null;
+      heroVideoReady = false;
+      heroVideoElement = null;
+    }
     report("video", 1);
 
     onProgress?.({

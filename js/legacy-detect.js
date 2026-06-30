@@ -1,5 +1,6 @@
 /**
- * Deteta browsers antigos (ex.: iPad 2 / iOS 9) e activa modo legado.
+ * Deteta browsers muito antigos (ex.: iPad 2 / iOS 9) — modo legado completo.
+ * Se só o vídeo falhar, o site moderno trata disso à parte (poster + ementas intactas).
  * ES5 — tem de correr antes dos scripts modernos.
  */
 (function () {

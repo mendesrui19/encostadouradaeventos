@@ -553,6 +553,38 @@ function initVideoDots() {
   }
 }
 
+function enableVideoFallback(section, video, scenes, shade, scrollCue) {
+  window.__videoFallback = true;
+  section.classList.add("is-fallback");
+
+  video.pause();
+  try {
+    video.removeAttribute("src");
+    video.load();
+  } catch {
+    /* noop */
+  }
+  video.style.display = "none";
+
+  if (shade) shade.style.opacity = "0.45";
+
+  scenes.forEach((scene) => {
+    scene.style.opacity = "1";
+    scene.style.visibility = "visible";
+    scene.style.transform = "none";
+    scene.querySelectorAll(
+      ".video-scene__eyebrow, .video-scene__title, .video-scene__lede, .video-scene__cta"
+    ).forEach((line) => {
+      line.style.opacity = "1";
+      line.style.transform = "none";
+    });
+  });
+
+  if (scrollCue) scrollCue.style.display = "none";
+  const ui = section.querySelector(".video-story__ui");
+  if (ui) ui.style.display = "none";
+}
+
 function adoptHeroVideo() {
   const placeholder = document.getElementById("heroVideo");
   const adopted = window.SitePreload?.adoptHeroVideoElement?.();
@@ -641,6 +673,11 @@ function initVideoStory() {
       window.scrollTo({ top: target, behavior: reduce ? "auto" : "smooth" });
     });
   });
+
+  if (window.__videoFallback) {
+    enableVideoFallback(section, video, scenes, shade, scrollCue);
+    return;
+  }
 
   if (reduce) {
     setActiveScene(0);
@@ -971,7 +1008,11 @@ function initVideoStory() {
         if (!duration) throw new Error("sem duração");
         startScrub();
       } catch {
-        await new Promise((r) => window.setTimeout(r, 1400 * Math.min(attempt, 6)));
+        if (attempt >= 3) {
+          enableVideoFallback(section, video, scenes, shade, scrollCue);
+          return;
+        }
+        await new Promise((r) => window.setTimeout(r, 1400 * attempt));
         await retry(attempt + 1);
       }
     };
